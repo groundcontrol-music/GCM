@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroundControl Music - Production Hub</title>
+    <style>
+        /* Helles, freundliches Grunddesign */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            
+            /* Hier kommt dein generiertes Bild rein */
+            background-image: url('images/background_notes.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Bild bleibt stehen beim Scrollen */
+        }
+
+        /* Ein weißer Schleier über dem Hintergrund, damit Text lesbar bleibt */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85); /* 85% Weiß */
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #222;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace; /* Code-Schrift für den Tech-Vibe */
+        }
+
+        .subtitle span {
+            color: #e91e63; /* Bunter Akzent */
+            font-weight: bold;
+        }
+
+        /* Grid Container */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Die Karten - Jetzt hell und schwebend */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            width: 300px;
+            overflow: hidden;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            /* Sanfter Schatten */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Schwebt hoch */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #ddd;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .artist-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .artist-desc {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: auto;
+        }
+
+        footer a { color: #666; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #333; text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <header>
+        <h1>GroundControl Music</h1>
+        <div class="subtitle">Binary Code <span>&</span> Human Soul</div>
+    </header>
+
+    <div class="project-container">
+        
+        <a href="kinderlieder.html" class="card">
+            <img src="images/matze_cover.jpg" alt="Erzieher Matze" class="card-image">
+            <div class="card-content">
+                <span class="genre-tag" style="background: #e0f7fa; color: #00bcd4;">Für Kinder</span>
+                <span class="artist-name">Erzieher Matze</span>
+                <span class="artist-desc">Echte Musik für kleine Ohren.<br>Pädagogisch, warm & lustig.</span>
+            </div>
+        </a>
+
+        <a href="groundc.html" class="card">
+            <img src="images/groundc_stage.jpg" alt="GroundC." class="card-image">
+            <div class="card-content">
+                <span class="genre-tag" style="background: #ffebee; color: #ff0000;">Sci-Fi Metal</span>
+                <span class="artist-name">GroundC.</span>
+                <span class="artist-desc">The Core has awakened.<br>AI-Driven Metalcore Narratives.</span>
+            </div>
+        </a>
+
+        <a href="Ludex.html" class="card">
+            <img src="images/ludex_art.jpg" alt="Ludex Umbrae" class="card-image">
+            <div class="card-content">
+                <span class="genre-tag" style="background: #f5f5f5; color: #666;">Darkrock, Electro</span>
+                <span class="artist-name">Ludex Umbrae</span>
+                <span class="artist-desc">Exploring the silence.<br>Atmospheric Soundscapes.</span>
+            </div>
+        </a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GroundControl Music</p>
+        <p>
+            <a href="impressum.html">Impressum</a> • 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+    </footer>
+
+</body>
+</html>
