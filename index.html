@@ -3,194 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GroundControl Music - Production Hub</title>
+    <title>Willkommen bei Matze</title>
     <style>
-        /* Helles, freundliches Grunddesign */
+        /* FREUNDLICHES DESIGN */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9; /* Helles Grau/Weiß */
             color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            
-            /* Hier kommt dein generiertes Bild rein */
-            background-image: url('images/background_notes.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Bild bleibt stehen beim Scrollen */
-        }
-
-        /* Ein weißer Schleier über dem Hintergrund, damit Text lesbar bleibt */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.85); /* 85% Weiß */
-            z-index: -1;
-        }
-
-        /* Header */
-        header {
+            line-height: 1.6;
             text-align: center;
-            padding: 30px 20px;
-	    max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 2,2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin: 0;
-            color: #222;
-            font-weight: 800;
         }
 
-        .subtitle {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 5px;
-            letter-spacing: 1px;
-            font-family: 'Courier New', monospace; /* Code-Schrift für den Tech-Vibe */
-        }
-
-        .subtitle span {
-            color: #e91e63; /* Bunter Akzent */
-            font-weight: bold;
-        }
-
-        /* Grid Container */
-        .project-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            padding: 20px;
-            flex-grow: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Die Karten - Jetzt hell und schwebend */
-        .card {
-            background: #ffffff;
-            border-radius: 15px;
-            width: 300px;
-            overflow: hidden;
-            text-decoration: none;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            /* Sanfter Schatten */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-        }
-
-        .card:hover {
-            transform: translateY(-10px); /* Schwebt hoch */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #ddd;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+        /* HEADER / HERO BEREICH */
+        header {
+            background-color: #fff;
+            padding: 60px 20px;
             border-bottom: 1px solid #eee;
         }
 
-        .card-content {
-            padding: 25px;
-            text-align: center;
+        h1 {
+            color: #E17055; /* Ein freundliches Etsy-Orange */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        .artist-name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .genre-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            font-weight: bold;
+        /* PROFILBILD (Rund und freundlich) */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background-color: #eee; /* Platzhalterfarbe */
         }
 
-        .artist-desc {
-            font-size: 0.9rem;
-            color: #777;
-            line-height: 1.5;
+        /* CONTAINER FÜR INHALTE */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
+        /* KACHELN / KARTEN */
+        .card {
+            background: #fff;
+            border-radius: 12px;
             padding: 30px;
-            font-size: 0.8rem;
-            color: #999;
-            margin-top: auto;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border-left: 5px solid #E17055; /* Oranger Akzent */
         }
 
-        footer a { color: #666; text-decoration: none; margin: 0 10px; }
-        footer a:hover { color: #333; text-decoration: underline; }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
 
+        h2 {
+            margin-top: 0;
+            color: #2d3436;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background-color: #E17055;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #999;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        a { color: #E17055; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <div class="overlay"></div>
-
     <header>
-        <h1>GroundControl Music</h1>
-        <div class="subtitle">Binary Code <span>&</span> Human Soul</div>
+        <img src="img/matze_profil.jpg" alt="Matze" class="profile-pic">
+        
+        <h1>Hallo, ich bin Matze!</h1>
+        <p class="subtitle">
+            Erzieher, Musiker & Kreativkopf.<br>
+            Hier findest du Musik und Materialien für den pädagogischen Alltag.
+        </p>
     </header>
 
-    <div class="project-container">
-        
-        <a href="kinderlieder.html" class="card">
-            <img src="images/matze_cover.jpg" alt="Erzieher Matze" class="card-image">
-            <div class="card-content">
-                <span class="genre-tag" style="background: #e0f7fa; color: #00bcd4;">Für Kinder</span>
-                <span class="artist-name">Erzieher Matze</span>
-                <span class="artist-desc">Echte Musik für kleine Ohren.<br>Pädagogisch, warm & lustig.</span>
-            </div>
-        </a>
+    <div class="container">
 
-        <a href="groundc.html" class="card">
-            <img src="images/groundc_stage.jpg" alt="GroundC." class="card-image">
-            <div class="card-content">
-                <span class="genre-tag" style="background: #ffebee; color: #ff0000;">Sci-Fi Metal</span>
-                <span class="artist-name">GroundC.</span>
-                <span class="artist-desc">The Core has awakened.<br>AI-Driven Metalcore Narratives.</span>
-            </div>
-        </a>
+        <div class="card">
+            <h2>🎵 Erzieher Matze</h2>
+            <p>
+                Pädagogisch wertvolle Kinderlieder für den Alltag in Kita und Familie. 
+                Ideal für die Toniebox, den Morgenkreis oder einfach zum Mitsingen.
+                Themen wie Trauer, Inklusion und Selbstständigkeit – kindgerecht verpackt.
+            </p>
+            <a href="[DEIN_ETSY_SHOP_LINK]" target="_blank" class="btn">
+                Zum Etsy Shop & Downloads
+            </a>
+        </div>
 
-        <a href="Ludex.html" class="card">
-            <img src="images/ludex_art.jpg" alt="Ludex Umbrae" class="card-image">
-            <div class="card-content">
-                <span class="genre-tag" style="background: #f5f5f5; color: #666;">Darkrock, Electro</span>
-                <span class="artist-name">Ludex Umbrae</span>
-                <span class="artist-desc">Exploring the silence.<br>Atmospheric Soundscapes.</span>
-            </div>
-        </a>
+        <div class="card" style="border-left-color: #74b9ff;"> <h2>📬 Kontakt & Mehr</h2>
+            <p>
+                Du hast Fragen zu den Songs oder möchtest Feedback geben? 
+                Schreib mir oder folge mir auf meinen Kanälen.
+            </p>
+            <a href="mailto:[DEINE_EMAIL]" class="btn btn-secondary">E-Mail schreiben</a>
+        </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2025 GroundControl Music</p>
-        <p>
-            <a href="impressum.html">Impressum</a> • 
-            <a href="datenschutz.html">Datenschutz</a>
-        </p>
+        &copy; 2025 Matze. Alle Rechte vorbehalten.<br>
+        <a href="impressum.html">Impressum & Datenschutz</a>
     </footer>
 
 </body>
