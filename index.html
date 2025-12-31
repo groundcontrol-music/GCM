@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erzieher Matze - Production Hub</title>
+    <style>
+        /* Helles, freundliches Grunddesign */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            
+            /* Hier dein Hintergrundbild */
+            background-image: url('images/background_notes.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Ein weißer Schleier über dem Hintergrund */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85); 
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #222;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .subtitle span {
+            color: #00bcd4; /* Passend zum Erzieher-Blau */
+            font-weight: bold;
+        }
+
+        /* Grid Container - Zentriert die Kachel */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Zentriert horizontal */
+            align-items: center;     /* Zentriert vertikal im verfügbaren Platz */
+            gap: 40px;
+            padding: 20px;
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Die Karte */
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            width: 320px; /* Ein kleines bisschen breiter für den Fokus */
+            overflow: hidden;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #ddd;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 320px; /* Quadratisch wirkt oft modern bei Einzelkacheln */
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .artist-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .artist-desc {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: auto;
+        }
+
+        footer a { color: #666; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #333; text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <header>
+        <h1>Erzieher Matze</h1>
+        <div class="subtitle">Musik <span>&</span> Pädagogik</div>
+    </header>
+
+    <div class="project-container">
+        
+        <a href="kinderlieder.html" class="card">
+            <img src="images/matze_cover.jpg" alt="Erzieher Matze" class="card-image">
+            <div class="card-content">
+                <span class="genre-tag" style="background: #e0f7fa; color: #00bcd4;">Spotify & Co.</span>
+                <span class="artist-name">Musik für Kinder</span>
+                <span class="artist-desc">Hier geht's zu meinen Liedern, Texten und pädagogischen Inhalten.</span>
+            </div>
+        </a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Erzieher Matze</p>
+        <p>
+            <a href="impressum.html">Impressum</a> • 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+    </footer>
+
+</body>
+</html>

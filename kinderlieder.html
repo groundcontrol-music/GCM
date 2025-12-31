@@ -3,198 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erzieher Matze - Musik für Kids</title>
+    <title>Erzieher Matze - KI-Musik für Kids</title>
     <style>
+        /* Grunddesign (wie Hauptseite) */
         body {
-            background-color: #e0f7fa; /* Hellblau wie der Himmel */
-            color: #333;
-            font-family: 'Verdana', sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            
+            /* Dein Hintergrundbild */
+            background-image: url('images/background_notes.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Navigation zurück (kleiner und dezenter oben links) */
+        /* Weißer Schleier (Overlay) */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85); 
+            z-index: -1;
+        }
+
+        /* Navigation zurück */
         .back-nav {
             position: absolute;
-            top: 15px;
+            top: 20px;
             left: 20px;
-            background: rgba(255, 255, 255, 0.8); /* Leicht transparent */
-            padding: 8px 15px;
-            border-radius: 20px;
-            z-index: 10; /* Damit es über dem Bild liegt */
+            z-index: 100;
         }
         .back-nav a { 
-            color: #009688; 
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #333; 
             text-decoration: none; 
             font-size: 0.9rem; 
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        .back-nav a:hover {
+            transform: translateX(-5px);
+            color: #00bcd4;
         }
 
-        /* NEUER HEADER BEREICH */
-        header {
-            position: relative;
-            height: 300px; /* Höhe des Headers */
-            background-color: #ffeb3b; /* Fallback-Farbe (Gelb) */
-            /* HIER KOMMT DEIN NEUES BILD REIN: */
-            background-image: url('images/matze_header_kids.jpg'); 
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Damit Text lesbar bleibt */
-        }
-
-        /* Die wellenförmige Kante unten */
-        .header-wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg); /* Dreht die Welle um */
-        }
-
-        .header-wave svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 60px; /* Höhe der Welle */
-        }
-
-        .header-wave .shape-fill {
-            fill: #e0f7fa; /* Muss die gleiche Farbe wie der body-Hintergrund sein */
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 1px;
-            color: #fff; /* Weißer Text auf buntem Bild */
-            /* Ein pinker Rand um die Schrift für den Pop-Effekt */
-            -webkit-text-stroke: 1.5px #e91e63; 
-        }
-
-        .subtitle {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-top: 10px;
-            font-weight: bold;
-            background: rgba(0, 150, 136, 0.8); /* Türkiser Kasten hinter Text */
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-
-        /* Avatar Bild (bleibt gleich) */
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-top: -90px; /* Zieht das Bild halb über die Welle */
-            position: relative;
-            z-index: 5;
-            background-color: #fff;
-        }
-
+        /* Container für den Inhalt */
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px 20px 60px 20px;
+            padding: 40px 20px;
+            text-align: center;
+            flex-grow: 1;
         }
 
+        /* Profilbild */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #00bcd4; /* Erzieher-Blau */
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Angepasster Intro Text */
         .intro-text {
             font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            line-height: 1.7;
+            margin-bottom: 50px;
             color: #555;
-            margin-top: 20px;
+            max-width: 700px; 
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Song Karten (unverändert) */
-        .song-card {
+        /* Karten Design */
+        .content-card {
             background: white;
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 10px solid #00bcd4;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
             text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
         }
 
-        h2 { color: #673ab7; margin-top: 0; }
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-accent-spotify { border-left: 8px solid #1DB954; }
+        .card-accent-etsy { border-left: 8px solid #F1641E; }
+
+        h2 { 
+            margin-top: 0; 
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        p { color: #666; line-height: 1.6; }
 
         .btn-spotify {
             display: inline-block;
             background: #1DB954;
             color: white;
-            padding: 12px 25px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
-            transition: transform 0.2s;
+            margin-top: 20px;
+            transition: all 0.2s;
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.3);
         }
         .btn-spotify:hover { transform: scale(1.05); background: #1ed760; }
 
-        footer {
-            padding: 30px;
-            background: #81d4fa;
-            font-size: 0.9rem;
-            color: #fff;
+        .badge-soon {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #888;
+            font-size: 0.8rem;
+            padding: 5px 12px;
+            border-radius: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
-        footer a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold;}
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+        }
+        footer a { color: #666; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #333; text-decoration: underline; }
 
     </style>
 </head>
 <body>
 
+    <div class="overlay"></div>
+
     <div class="back-nav">
-        <a href="index.html">← Startseite</a>
+        <a href="index.html">← Zurück zur Übersicht</a>
     </div>
 
-    <header>
-        <h1>Erzieher Matze</h1>
-        <div class="subtitle">Echte Musik aus dem Kita-Alltag</div>
-
-        <div class="header-wave">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </header>
-
-    <img src="images/matze_cover.jpg" alt="Matze mit Mütze" class="profile-img">
-
     <div class="container">
+        
+        <img src="images/matze_cover.jpg" alt="Erzieher Matze" class="profile-img">
+
+        <h1>Erzieher Matze</h1>
+        <div class="subtitle">KI-Musik mit Emotion. Echte Hilfe.</div>
+
         <div class="intro-text">
             <p><strong>Moin! Ich bin Matze.</strong></p>
-            <p>Als Erzieher weiß ich genau, was im Kinderkopf los ist – ob die Nase läuft oder der Schuh drückt. <br>
-            Hier gibt es keine lauten Techno-Beats, sondern authentische Lieder zum Zuhören, Mitmachen und Trösten.</p>
+            <p>Seit 1999 bin ich als Erzieher im Einsatz – von der Krippe bis zur Jugendpsychiatrie, von Autismus bis Intensivbetreuung. Ich weiß, was Kinder und Eltern im Alltag bewegt.</p>
+            <p>Für meine Musik gehe ich neue Wege: Ich nutze künstliche Intelligenz, um meine pädagogischen Ideen in Klänge zu verwandeln. Das Ergebnis ist moderne KI-Musik, die aber zu 100% menschliche Erfahrung enthält. Songs wie der <em>"Ankersong"</em> basieren auf echten therapeutischen Ansätzen – damit sie nicht nur gut klingen, sondern wirklich helfen.</p>
         </div>
 
-        <div class="song-card">
+        <div class="content-card card-accent-spotify">
             <h2>🤧 Heute bleibe ich zu Hause</h2>
-            <p>Das neue Lied für alle kleinen Patienten. Ein musikalisches Trostpflaster für Schnupfennasen.</p>
-            <p><em>"ACHTUNG: Ab dem 05.01.26 ist der Player in Betrieb!..."</em></p>
+            <p>Das neue Lied für alle kleinen Patienten. Ein musikalisches Trostpflaster für Schnupfennasen und Fieberthermometer-Tage.</p>
+            <p style="font-size: 0.9rem; font-style: italic; color: #888;">
+                (Der Player startet automatisch, sobald der Song am 05.01.26 veröffentlicht ist!)
+            </p>
             
-            <a href="LINK_ZU_DEINEM_SPOTIFY_ARTIST_PROFIL" target="_blank" class="btn-spotify">Auf Spotify anhören</a>
+            <div style="margin-top: 20px;">
+                <a href="https://open.spotify.com/artist/DEIN_SPOTIFY_LINK" target="_blank" class="btn-spotify">
+                    Auf Spotify anhören
+                </a>
+            </div>
+        </div>
+
+        <div class="content-card card-accent-etsy">
+            <span class="badge-soon">In Planung</span>
+            <h2>🎁 Matze's Bastelshop</h2>
+            <p>Musik zum Anfassen und Mitmachen. Ich arbeite gerade an Dingen, die den Alltag erleichtern und bereichern:</p>
+            <ul style="color: #666; line-height: 1.6; padding-left: 20px;">
+                <li>Downloads für eure Toniebox / Soundboxen</li>
+                <li>Pädagogische Materialien zum Ausdrucken</li>
+                <li>Kleine Helfer für Kita & Zuhause</li>
+            </ul>
+            <p><strong>Bald hier verfügbar!</strong></p>
         </div>
 
     </div>
 
     <footer>
-        <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
-<p>&copy; 2025 GroundControl Music. Alle Rechte vorbehalten. Bilder dürfen nicht ohne Erlaubnis verwendet werden.</p>
-</footer>
-   
+        <p>© 2025 Erzieher Matze</p>
+        <p>
+            <a href="impressum.html">Impressum</a> • 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+    </footer>
 
 </body>
 </html>
-
